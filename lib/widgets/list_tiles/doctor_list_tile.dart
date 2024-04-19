@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:instacare/screens/doctor_details_screen.dart';
 import 'package:models/models.dart';
 
 class DoctorListTile extends StatelessWidget {
@@ -12,7 +13,13 @@ class DoctorListTile extends StatelessWidget {
     final colorScheme = Theme.of(context).colorScheme;
 
     return ListTile(
-      onTap: () {},
+      onTap: () {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) =>
+                    DoctorDetailsScreen(doctorId: doctor.id)));
+      },
       contentPadding: EdgeInsets.zero,
       leading: CircleAvatar(
         radius: 30,
@@ -48,7 +55,7 @@ class DoctorListTile extends StatelessWidget {
               const SizedBox(
                 width: 4,
               ),
-              Text("3 years",
+              Text("${doctor.yearsOfExperience} years",
                   style: textTheme.bodySmall!.copyWith(
                       color: colorScheme.onBackground.withOpacity(.5),
                       fontWeight: FontWeight.bold))

@@ -104,13 +104,13 @@ class DoctorAddress extends Equatable {
   static const sampleDoctorAddresses = [
     DoctorAddress(
         id: '0',
-        doctorId: '0',
-        latLng: LatLng(8.00088, 0),
-        streetAddress: 'streetAddress',
-        streetNumber: 'streetNumber',
-        city: 'city',
-        state: "state",
-        country: "country",
-        postalCode: "09812")
+        doctorId: '1',
+        latLng: LatLng(0, 0),
+        streetAddress: '1800 Fake Lane',
+        streetNumber: 'Suite #42',
+        city: 'Livermore',
+        state: "California",
+        country: "USA",
+        postalCode: "96812")
   ];
 }

@@ -13,6 +13,7 @@ class Doctor extends Equatable {
   final double rating;
   final int reviewCount;
   final int patientCount;
+  final int yearsOfExperience;
 
   const Doctor({
     required this.id,
@@ -23,41 +24,11 @@ class Doctor extends Equatable {
     required this.address,
     required this.packages,
     required this.workingHours,
+    required this.yearsOfExperience,
     this.rating = 0,
     this.reviewCount = 0,
     this.patientCount = 0,
   });
-
-  Doctor copyWith({
-    String? id,
-    String? name,
-    String? bio,
-    String? profileImageUrl,
-    DoctorCategory? category,
-    DoctorAddress? address,
-    List<DoctorPackage>? packages,
-    List<DoctorWorkingHours>? workingHours,
-    double? rating,
-    int? reviewCount,
-    int? patientCount,
-  }) {
-    return Doctor(
-      id: id ?? this.id,
-      name: name ?? this.name,
-      bio: bio ?? this.bio,
-      profileImageUrl: profileImageUrl ?? this.profileImageUrl,
-      category: category ?? this.category,
-      address: address ?? this.address,
-      packages: packages ?? this.packages,
-      workingHours: workingHours ?? this.workingHours,
-      rating: rating ?? this.rating,
-      reviewCount: reviewCount ?? this.reviewCount,
-      patientCount: patientCount ?? this.patientCount,
-    );
-  }
-
-  @override
-  bool get stringify => true;
 
   @override
   List<Object> get props {
@@ -73,35 +44,42 @@ class Doctor extends Equatable {
       rating,
       reviewCount,
       patientCount,
+      yearsOfExperience,
     ];
   }
 
   static final sampleDoctors = [
     Doctor(
-        id: '0',
-        name: "Dr. Boss",
-        bio: 'A magical cardiologist based in California',
-        profileImageUrl:
-            'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D',
-        category: DoctorCategory.cardiology,
-        address: DoctorAddress.sampleDoctorAddresses[0],
-        packages: DoctorPackage.samplePackages,
-        workingHours: DoctorWorkingHours.sampleDoctorWorkingHours,
-        rating: 4.2,
-        reviewCount: 182,
-        patientCount: 1000),
+      id: '1',
+      name: "Dr. Heart",
+      bio:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc pharetra libero vel lacus ullamcorper posuere. Aenean commodo ultricies porttitor. Cras euismod urna et ipsum vulputate hendrerit varius vitae ligula. Integer turpis tellus, sollicitudin volutpat posuere ac, iaculis vel nulla. Sed ornare ante eget tellus bibendum pellentesque. Praesent luctus rhoncus sapien. Praesent porttitor, ante a consequat commodo, felis mi hendrerit sem, id porta nisi sapien a elit. Nunc fringilla urna nec nisl fermentum commodo. Donec at felis sapien. Aliquam laoreet pellentesque metus, sit amet accumsan eros euismod ut. Sed enim felis, malesuada non massa non, hendrerit tristique tortor. Integer et vestibulum est. Donec arcu nisl, elementum et justo nec, faucibus molestie lorem. Nulla facilisi. Etiam mollis, purus a volutpat fringilla, diam erat tempor orci, a posuere augue elit id ex. Pellentesque eu sodales risus.',
+      profileImageUrl:
+          'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D',
+      category: DoctorCategory.cardiology,
+      address: DoctorAddress.sampleDoctorAddresses[0],
+      packages: DoctorPackage.samplePackages,
+      workingHours: DoctorWorkingHours.sampleDoctorWorkingHours,
+      rating: 4.2,
+      reviewCount: 182,
+      patientCount: 1000,
+      yearsOfExperience: 4,
+    ),
     Doctor(
-        id: '1',
-        name: "Dr. Teeth",
-        bio: 'Dentist',
-        profileImageUrl:
-            'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjN8fHByb2ZpbGV8ZW58MHx8MHx8fDA%3D',
-        category: DoctorCategory.dentist,
-        address: DoctorAddress.sampleDoctorAddresses[0],
-        packages: DoctorPackage.samplePackages,
-        workingHours: DoctorWorkingHours.sampleDoctorWorkingHours,
-        rating: 4.6,
-        reviewCount: 77,
-        patientCount: 32)
+      id: '2',
+      name: "Dr. Teeth",
+      bio:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc pharetra libero vel lacus ullamcorper posuere. Aenean commodo ultricies porttitor. Cras euismod urna et ipsum vulputate hendrerit varius vitae ligula. Integer turpis tellus, sollicitudin volutpat posuere ac, iaculis vel nulla. Sed ornare ante eget tellus bibendum pellentesque. Praesent luctus rhoncus sapien. Praesent porttitor, ante a consequat commodo, felis mi hendrerit sem, id porta nisi sapien a elit. Nunc fringilla urna nec nisl fermentum commodo. Donec at felis sapien. Aliquam laoreet pellentesque metus, sit amet accumsan eros euismod ut. Sed enim felis, malesuada non massa non, hendrerit tristique tortor. Integer et vestibulum est. Donec arcu nisl, elementum et justo nec, faucibus molestie lorem. Nulla facilisi. Etiam mollis, purus a volutpat fringilla, diam erat tempor orci, a posuere augue elit id ex. Pellentesque eu sodales risus.',
+      profileImageUrl:
+          'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjN8fHByb2ZpbGV8ZW58MHx8MHx8fDA%3D',
+      category: DoctorCategory.dentist,
+      address: DoctorAddress.sampleDoctorAddresses[0],
+      packages: DoctorPackage.samplePackages,
+      workingHours: DoctorWorkingHours.sampleDoctorWorkingHours,
+      rating: 4.6,
+      reviewCount: 77,
+      patientCount: 32,
+      yearsOfExperience: 1,
+    )
   ];
 }

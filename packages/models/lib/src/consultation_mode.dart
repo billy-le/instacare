@@ -12,7 +12,7 @@ enum ConsultationMode {
   inPerson(
       label: 'In Person',
       description: 'Meet doctor in person',
-      icon: Icons.abc);
+      icon: Icons.person_outline);
 
   final String label;
   final String description;
